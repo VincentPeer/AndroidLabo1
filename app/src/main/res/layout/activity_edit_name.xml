@@ -9,7 +9,7 @@
         android:layout_centerInParent="true">
 
         <EditText
-            android:id="@+id/welcome"
+            android:id="@+id/edit_name"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -17,11 +17,12 @@
             />
 
         <Button
+            android:id="@+id/save_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/welcome"
+            android:layout_toEndOf="@+id/edit_name"
             android:text="@string/save"
-            android:layout_alignBaseline="@+id/welcome"
+            android:layout_alignBaseline="@+id/edit_name"
             />
     </RelativeLayout>
 
