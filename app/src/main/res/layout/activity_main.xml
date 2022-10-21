@@ -12,10 +12,11 @@
             android:id="@+id/welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/welcome"
+            android:text="@string/welcome_basic"
             android:layout_centerVertical="true"
             android:layout_marginEnd="20dp"
             />
+
 
         <Button
             android:id="@+id/edit_button"

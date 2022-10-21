@@ -6,9 +6,11 @@ import android.content.Intent
 import androidx.activity.result.contract.ActivityResultContract
 import ch.heigvd.daa.labo1.EditName
 
-class PickNameContract : ActivityResultContract<Void?, String?>() {
-    override fun createIntent(context: Context, input: Void?) =
-        Intent(context, EditName::class.java)
+class PickNameContract : ActivityResultContract<String?, String?>() {
+    override fun createIntent(context: Context, input: String?) =
+        Intent(context, EditName::class.java).apply {
+            putExtra(EditName.ASK_FOR_NAME_RESULT_KEY, input)
+        }
 
     override fun parseResult(resultCode: Int, intent: Intent?): String? {
         if (resultCode != Activity.RESULT_OK) {

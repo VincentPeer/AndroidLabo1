@@ -8,11 +8,15 @@ import android.widget.EditText
 
 class EditName : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_name)
 
+
         val editButton = findViewById<Button>(R.id.save_button)
         val textField = findViewById<EditText>(R.id.edit_name)
+
+        textField.setText(intent?.getStringExtra(ASK_FOR_NAME_RESULT_KEY))
 
         editButton.setOnClickListener {
             val fieldValue = textField.text.toString()
@@ -23,6 +27,7 @@ class EditName : AppCompatActivity() {
             finish()
         }
     }
+
     companion object {
         val ASK_FOR_NAME_RESULT_KEY = "NAME_KEY"
     }
