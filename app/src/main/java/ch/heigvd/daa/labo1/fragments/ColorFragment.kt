@@ -22,9 +22,9 @@ class ColorFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            color = Color.parseColor(it.getString(ARG_HEX_COLOR))
-        }
+//        arguments?.let {
+//            color = Color.parseColor(it.getString(ARG_HEX_COLOR))
+//        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -2,6 +2,7 @@ package ch.heigvd.daa.labo1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 
 class MainActivityFragment1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
