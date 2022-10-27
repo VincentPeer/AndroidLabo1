@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivityFragment1">
+    android:orientation="vertical"
+    tools:context=".MainActivityFragment1"
+    >
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/framelayout"
+        android:id="@+id/fragment_color"
+        android:name="ch.heigvd.daa.labo1.fragments.ColorFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintVertical_weight="1"
+        android:foregroundGravity="bottom"
         />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/framgent_counter"
+        android:name="ch.heigvd.daa.labo1.fragments.CounterFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintVertical_weight="1"
+        android:foregroundGravity="top"
+        />
+
+
+</RelativeLayout>

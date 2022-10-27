@@ -1,4 +1,4 @@
-package ch.heigvd.iict.and.labo2.fragments
+package ch.heigvd.daa.labo1.fragments
 
 import android.os.Bundle
 import android.util.Log
