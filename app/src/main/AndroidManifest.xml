@@ -12,6 +12,13 @@
         android:theme="@style/Theme.Labo1"
         tools:targetApi="32">
         <activity
+            android:name=".MainActivityFragment1"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".EditName"
             android:exported="false">
             <meta-data
