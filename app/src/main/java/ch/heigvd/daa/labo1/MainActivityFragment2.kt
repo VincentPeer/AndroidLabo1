@@ -54,13 +54,11 @@ class MainActivityFragment2 : AppCompatActivity() {
         // Never called ... why ??? is it a bug ???
         super.onSaveInstanceState(outState)
         outState.putInt(ARG_COUNTER, counter)
-//        outPersistentState.putInt(ARG_COUNTER, counter)
     }
 
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        counter = savedInstanceState.getInt(ARG_COUNTER)
     }
 
 
