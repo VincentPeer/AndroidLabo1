@@ -25,6 +25,7 @@ class ColorFragment : Fragment() {
         arguments?.let {
             color = Color.parseColor(it.getString(ARG_HEX_COLOR))
         }
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
