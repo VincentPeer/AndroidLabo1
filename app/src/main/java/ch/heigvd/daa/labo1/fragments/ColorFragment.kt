@@ -20,13 +20,13 @@ class ColorFragment : Fragment() {
     private lateinit var gSeekBar : SeekBar
     private lateinit var bSeekBar : SeekBar
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            color = Color.parseColor(it.getString(ARG_HEX_COLOR))
-        }
-
-    }
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        arguments?.let {
+//            color = Color.parseColor(it.getString(ARG_HEX_COLOR))
+//        }
+//
+//    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // création de la vue à partir du xml
@@ -35,8 +35,9 @@ class ColorFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if(savedInstanceState != null)
-            color = savedInstanceState.getInt(ARG_HEX_COLOR, Color.parseColor(DEFAULT_COLOR))
+//        if(savedInstanceState != null)
+//            color = savedInstanceState.getInt(ARG_HEX_COLOR, Color.parseColor(DEFAULT_COLOR))
+        newInstance()
 
         // linkage de la GUI
         rSeekBar = view.findViewById(R.id.color_r)

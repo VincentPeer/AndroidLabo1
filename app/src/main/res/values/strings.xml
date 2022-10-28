@@ -4,4 +4,10 @@
     <string name="welcome_name"> </string>
     <string name="edit">EDITER</string>
     <string name="save">SAUVER</string>
+    <string name="btn_back">Back</string>
+    <string name="btn_close">Close</string>
+    <string name="btn_next">Next</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="config_step">Step</string>
 </resources>
