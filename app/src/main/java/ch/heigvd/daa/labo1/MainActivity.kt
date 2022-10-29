@@ -10,9 +10,9 @@ class MainActivity : AppCompatActivity() {
 
     private var name : String? = null
     private lateinit var welcomeTextView:TextView
-
-
-    private val getName = registerForActivityResult(PickNameContract()) {
+    private lateinit var editButton:Button
+    // Collect the username through the contract with the EditName class
+    private val manageUsername = registerForActivityResult(PickNameContract()) {
         if (it != null) {
             name = it
             welcomeTextView.text = getString(R.string.welcome_user, name)
@@ -24,13 +24,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Retrieve button and textView
         welcomeTextView = findViewById(R.id.welcome)
+        editButton = findViewById(R.id.edit_button)
 
-
-        val editButton = findViewById<Button>(R.id.edit_button)
         editButton.setOnClickListener{
-
-            getName.launch(name)
+            manageUsername.launch(name)
         }
     }
+
 }
