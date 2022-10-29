@@ -16,8 +16,10 @@ class MainActivityFragment2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         if(savedInstanceState != null)
             counter = savedInstanceState.getInt(ARG_COUNTER)
+
 
         setContentView(R.layout.activity_main_fragment2)
         supportFragmentManager.beginTransaction()
@@ -41,7 +43,10 @@ class MainActivityFragment2 : AppCompatActivity() {
             if (--counter == 0) {
                 closeConfig()
             } else {
-                supportFragmentManager.popBackStack()
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container_config, ConfigFragment.newInstance(counter))
+                    .commit()
+               supportFragmentManager.popBackStack()
             }
         }
 
@@ -51,7 +56,6 @@ class MainActivityFragment2 : AppCompatActivity() {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        // Never called ... why ??? is it a bug ???
         super.onSaveInstanceState(outState)
         outState.putInt(ARG_COUNTER, counter)
     }
