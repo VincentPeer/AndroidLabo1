@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Labo1</string>
-    <string name="welcome_basic">Bienvenue, veuillez entrer votre nom</string>
-    <string name="welcome_name"> </string>
+    <string name="ask_for_name">Bienvenue, veuillez entrer votre nom</string>
+    <string name="welcome_user">Bienvenue %s</string>
     <string name="edit">EDITER</string>
     <string name="save">SAUVER</string>
     <string name="btn_back">Back</string>
