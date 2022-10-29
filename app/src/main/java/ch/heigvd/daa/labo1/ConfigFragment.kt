@@ -7,21 +7,28 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+// the fragment initialization parameters
 private const val ARG_PARAM1 = "step_number"
 
 /**
- * A simple [Fragment] subclass.
+ * [Fragment] representing a config step
  * Use the [ConfigFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
 class ConfigFragment : Fragment() {
-    private var step_number: Int? = null
+
+    private var step_number: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            step_number = it.getInt(ARG_PARAM1)
+        if (savedInstanceState != null) {
+            // Restore the step number
+            this. step_number = savedInstanceState.getInt(ARG_PARAM1)
+        } else {
+            // If no saved instance, create one with parameter
+            arguments?.let {
+                step_number = it.getInt(ARG_PARAM1)
+            }
         }
     }
 
@@ -35,11 +42,17 @@ class ConfigFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Retrive ref to GUI
+        // Retrieve ref to GUI
         val stepNbView = view.findViewById<TextView>(R.id.step_nb)
 
         stepNbView.text = step_number.toString()
 
+    }
+
+    // Save the step number
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt(ARG_PARAM1, step_number)
     }
 
     companion object {
