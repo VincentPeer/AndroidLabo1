@@ -37,7 +37,6 @@ class ColorFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 //        if(savedInstanceState != null)
 //            color = savedInstanceState.getInt(ARG_HEX_COLOR, Color.parseColor(DEFAULT_COLOR))
-        newInstance()
 
         // linkage de la GUI
         rSeekBar = view.findViewById(R.id.color_r)
