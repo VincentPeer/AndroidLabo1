@@ -23,7 +23,7 @@ class ConfigFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_config, container, false)
 
         if (savedInstanceState == null)
-            view.findViewById<TextView>(R.id.step_nb).text = "${arguments?.getInt(ARG_PARAM1) ?: 1}"
+            view.findViewById<TextView>(R.id.step_nb).text = (arguments?.getInt(ARG_PARAM1) ?: 1).toString()
 
         return view
     }
