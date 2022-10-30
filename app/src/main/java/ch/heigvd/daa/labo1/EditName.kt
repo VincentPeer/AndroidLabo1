@@ -1,3 +1,8 @@
+/**
+ * Exercice 1
+ * @author Damien Maier, Vincent Peer, Jean-François Pasche
+ */
+
 package ch.heigvd.daa.labo1
 
 import android.content.Intent
@@ -6,30 +11,43 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 
+/**
+ * Asks the user to edit his name.
+ *
+ * An initial name value can be provided via an intent with the `ASK_FOR_NAME_RESULT_KEY` key
+ *
+ * If the user enters a name, the result intent has status code `RESULT_OK`
+ * and the new name is provided with the `ASK_FOR_NAME_RESULT_KEY` key
+ */
 class EditName : AppCompatActivity() {
+
+    /**
+     * Displays
+     * - A text field to edit the name
+     * - A validation button that ends the activity
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_name)
 
-        // Retrieve button and text-field references
-        val saveButton = findViewById<Button>(R.id.save_button)
         val textField = findViewById<EditText>(R.id.edit_name)
 
         // Set the username in the text field
         textField.setText(intent?.getStringExtra(ASK_FOR_NAME_RESULT_KEY))
 
-        // Wait that the user press the save button and
-        // put the name in the intend to read it from the main activity
-        saveButton.setOnClickListener {
-            val fieldValue = textField.text.toString()
+        // When the button is pressed, we put the content of the text field in the intent
+        // and we finish the activity
+        findViewById<Button>(R.id.save_button).setOnClickListener {
             val data = Intent()
-            data.putExtra(ASK_FOR_NAME_RESULT_KEY, fieldValue)
+
+            data.putExtra(ASK_FOR_NAME_RESULT_KEY, textField.text.toString())
             setResult(RESULT_OK, data)
+
             finish()
         }
     }
 
-    // Key for the name
+    // Key for the name in the intent
     companion object {
         val ASK_FOR_NAME_RESULT_KEY = "NAME_KEY"
     }

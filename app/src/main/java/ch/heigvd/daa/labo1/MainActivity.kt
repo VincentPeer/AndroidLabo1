@@ -1,3 +1,8 @@
+/**
+ * Exercice 1
+ * @author Damien Maier, Vincent Peer, Jean-François Pasche
+ */
+
 package ch.heigvd.daa.labo1
 
 import android.os.Bundle
@@ -8,11 +13,12 @@ import ch.heigvd.daa.labo1.contract.PickNameContract
 
 private const val SAVED_STATE_NAME_KEY = "NAME"
 
+/**
+ * Displays a personalized welcome message and allows the user to edit his name.
+ */
 class MainActivity : AppCompatActivity() {
 
     private var name: String? = null
-    private lateinit var welcomeTextView: TextView
-    private lateinit var editButton: Button
 
     // Collect the username through the contract with the EditName class
     private val manageUsername = registerForActivityResult(PickNameContract()) {
@@ -23,6 +29,12 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Displays a layout with
+     * - A welcome text based on the user name
+     * - A button that allows the user to edit his name
+     * If a previous activity state was saved, the user name is restored from it.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -30,23 +42,28 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        // Retrieve button and textView
-        welcomeTextView = findViewById(R.id.welcome)
-        editButton = findViewById(R.id.edit_button)
-
         updateWelcomeText()
 
-        editButton.setOnClickListener {
+        // When the button is pressed, we retrieve the user name using the contract linked to manageUsername
+        findViewById<Button>(R.id.edit_button).setOnClickListener {
             manageUsername.launch(name)
         }
     }
 
+    /**
+     * Updates the welcome text displayed according to the user name.
+     * If the name is null, a generic welcome text is displayed.
+     * Otherwise, a personalized welcome text is displayed.
+     */
     private fun updateWelcomeText() {
-        welcomeTextView.text =
+        findViewById<TextView>(R.id.welcome).text =
             if (name == null) getString(R.string.ask_for_name)
             else getString(R.string.welcome_user, name)
     }
 
+    /**
+     * Saves the user name
+     */
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putString(SAVED_STATE_NAME_KEY, name)

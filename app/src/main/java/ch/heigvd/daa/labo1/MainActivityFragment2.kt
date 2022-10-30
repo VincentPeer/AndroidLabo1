@@ -1,3 +1,8 @@
+/**
+ * Exercice 3
+ * @author Damien Maier, Vincent Peer, Jean-François Pasche
+ */
+
 package ch.heigvd.daa.labo1
 
 import androidx.appcompat.app.AppCompatActivity
@@ -5,13 +10,19 @@ import android.os.Bundle
 import android.widget.Button
 import ch.heigvd.daa.labo1.fragments.ConfigFragment
 
-private const val ARG_COUNTER = "param_counter"
 
-// Useful doc about saving back stack state
-// https://developer.android.com/guide/fragments/saving-state
-
+/**
+ * Displays configuration steps with navigation buttons
+ */
 class MainActivityFragment2 : AppCompatActivity() {
 
+    /**
+     * Displays :
+     * - The current configuration step number
+     * - A next button that allows to go to the next step
+     * - A back button that allows to go back to the previous step. If there is no previous step, the activity ends.
+     * - A close button that ends the activity
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -19,6 +30,8 @@ class MainActivityFragment2 : AppCompatActivity() {
 
         // Configure next btn action
         findViewById<Button>(R.id.btn_next).setOnClickListener {
+            // Transaction that puts the new step fragment into the container
+            // The transaction is added to the backstack
             supportFragmentManager.beginTransaction()
                 .replace(
                     R.id.fragment_container_config,
@@ -30,6 +43,7 @@ class MainActivityFragment2 : AppCompatActivity() {
 
         // Configure back btn action
         findViewById<Button>(R.id.btn_back).setOnClickListener {
+            // Presses the phone back button
             onBackPressed()
         }
 

@@ -1,3 +1,8 @@
+/**
+ * Exercice 1
+ * @author Damien Maier, Vincent Peer, Jean-François Pasche
+ */
+
 package ch.heigvd.daa.labo1.contract
 
 import android.app.Activity
@@ -7,17 +12,18 @@ import androidx.activity.result.contract.ActivityResultContract
 import ch.heigvd.daa.labo1.EditName
 
 /**
- * Contract between the main activity and a class to edit a name
- * We collect the name of a user and bring it back to the main class
+ * Asks the user to edit his name.
+ * Input : the user name to edit
+ * Output : the name chosen by the user, or null if the user does not provide a name.
  */
 class PickNameContract : ActivityResultContract<String?, String?>() {
-    // Establish an intent with the second class and give the key we wait
+    // Run the EditName activity and give the current name to it
     override fun createIntent(context: Context, input: String?) =
         Intent(context, EditName::class.java).apply {
             putExtra(EditName.ASK_FOR_NAME_RESULT_KEY, input)
         }
 
-    // Receive the response from the contract and collect the key
+    // Receive the response from the EditName activity and collect the name
     override fun parseResult(resultCode: Int, intent: Intent?): String? {
         if (resultCode != Activity.RESULT_OK) {
             return null
