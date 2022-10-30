@@ -18,7 +18,7 @@ class MainActivityFragment2 : AppCompatActivity() {
 
     /**
      * Displays :
-     * - The current configuration step number
+     * - The current configuration step
      * - A next button that allows to go to the next step
      * - A back button that allows to go back to the previous step. If there is no previous step, the activity ends.
      * - A close button that ends the activity
@@ -53,5 +53,8 @@ class MainActivityFragment2 : AppCompatActivity() {
         }
     }
 
+    /**
+     * Returns the number of the next config step
+     */
     private fun nextStepNumber() = supportFragmentManager.backStackEntryCount + 2
 }
