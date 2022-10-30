@@ -31,9 +31,9 @@ class ConfigFragment : Fragment() {
      *
      * The step number can be provided with the argument key `STEP_NUMBER_KEY`. The default is 1.
      */
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_config, container, false).apply {
+        inflater.inflate(R.layout.fragment_config, container, false).apply {
             // We set the TextView content for the step number.
             // As the state of the fragment is not preserved,
             // this should be done only the first time the fragment is created.
@@ -43,7 +43,6 @@ class ConfigFragment : Fragment() {
                 // If it does not exist, we set it to 1.
                 this.findViewById<TextView>(R.id.step_nb).text = (arguments?.getInt(STEP_NUMBER_KEY) ?: 1).toString()
         }
-    }
 
 
     companion object {
