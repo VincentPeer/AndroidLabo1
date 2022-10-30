@@ -33,18 +33,16 @@ class ConfigFragment : Fragment() {
      */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_config, container, false)
-
-        // We set the TextView content for the step number.
-        // As the state of the fragment is not preserved,
-        // this should be done only the first time the fragment is created.
-        // The content of the TextView is preserved when it is recreated.
-        if (savedInstanceState == null)
-            // The step number is retrieved from the argument.
-            // If it does not exist, we set it to 1.
-            view.findViewById<TextView>(R.id.step_nb).text = (arguments?.getInt(STEP_NUMBER_KEY) ?: 1).toString()
-
-        return view
+        return inflater.inflate(R.layout.fragment_config, container, false).apply {
+            // We set the TextView content for the step number.
+            // As the state of the fragment is not preserved,
+            // this should be done only the first time the fragment is created.
+            // The content of the TextView is preserved when it is recreated.
+            if (savedInstanceState == null)
+                // The step number is retrieved from the argument.
+                // If it does not exist, we set it to 1.
+                this.findViewById<TextView>(R.id.step_nb).text = (arguments?.getInt(STEP_NUMBER_KEY) ?: 1).toString()
+        }
     }
 
 
