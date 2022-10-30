@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/fragment_config"
-        android:layout_above="@+id/btn_container">
+        android:layout_above="@+id/btn_container"
+        android:name="ch.heigvd.daa.labo1.fragments.ConfigFragment">
     </androidx.fragment.app.FragmentContainerView>
 
     <RelativeLayout
